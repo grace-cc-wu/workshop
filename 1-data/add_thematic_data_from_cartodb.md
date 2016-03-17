@@ -6,8 +6,9 @@ In this exercise we are going to experiment with adding a layer we have already 
 
 1. Add the javascript and css files for CartoDB.js into our html document. CartoDB.js inlcudes Leaflet so we don't have to load Leaflet separately.
 
+2. Get the share link to the layer you styled from CartoDB Editor. For this exercise you can use the tick locations layer I uploaded to my CartoDB account.
 
-2. Copy and paste the code below into the [add_thematic_data_from_cartodb.js](./src/add_thematic_data_from_cartodb.js). 
+3. Copy and paste the code below into src/add_thematic_data_from_cartodb.js
 
     ```javascript
 
@@ -37,9 +38,9 @@ In this exercise we are going to experiment with adding a layer we have already 
 
 4. If you hover over a marker it will label the marker with fields specified in CartoDB.
 
-5. Check out CartoDB's online tutorials [Map Academy](http://academy.cartodb.com/courses/cartodbjs-ground-up/) for more details in which you can use CartoDB.js
+5. Check out CartoDB's online tutorials [Map Academy](http://academy.cartodb.com/courses/cartodbjs-ground-up/) for more details on how to use CartoDB.js
 
-__Read through the comments in the code to understand what's happening at each step.__
+__Step through the code, read the comments to understand what's happening at each step. Ask questions!__
 
 __Remember to refresh your browser to see your changes.__
 
