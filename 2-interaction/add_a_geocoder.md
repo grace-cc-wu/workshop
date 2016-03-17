@@ -6,7 +6,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 ###Steps
 
-1. There are lot of services that provide geocoding. [Nominatim](https://nominatim.openstreetmap.org/) and [MapZen](https://mapzen.com/projects/search?lng=-122.24710&lat=37.53310&zoom=12) are two that I have tried. Other geocoding services - Google, Bing, CartoDB, Mapbox, etc.
+1. There are lot of services that provide geocoding. [Nominatim](https://nominatim.openstreetmap.org/) and [MapZen](https://mapzen.com/projects/search?lng=-122.24710&lat=37.53310&zoom=12) are two that I have tried. MapZen's geocoding service is great and has generous terms of service. Their geocoding service is built on on [open-source tools](https://github.com/pelias/pelias) and powered entirely by open data. Other geocoding services - Google, Bing, CartoDB, Mapbox, etc.
 
 2. We will use a [leaflet plugin](https://github.com/perliedman/leaflet-control-geocoder) that adds a geocoder control to a leaflet map. You have the option of using different geocoding service with this plugin. 
 
