@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>The Web Ahead Labs</title>
+
+    <meta name="description" content="technology experiments by Jen Simmons">
+    <meta name="author" content="Jen Simmons">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cleartype" content="on">
+
+    <style type="text/css">
+      htm, body {
+        margin: 0;
+        padding: 0; 
+      }
+
+      main {
+        width: 80%;
+        margin: 2em auto; 
+      }
+
+      section {
+        margin: 100px 0; 
+      }
+
+      footer {
+        text-align: center;
+        margin: 3em 0 3em 0;
+        clear: both; 
+      }
+
+      body {
+        font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+        line-height: 1.35em;
+        font-size: 16px;
+        color: #444;
+        background: white; 
+      }
+
+      h1 {
+        font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+        line-height: 1.15em;
+        font-weight: bold;
+        margin: 0.5em 0;
+        color: #555;
+        font-size: 48px; 
+      }
+
+      section {
+        display: flex;
+      }
+
+      .multicol {
+        width: 20%;
+        margin-right: 2em;
+        border-right: 1px solid #444; 
+      }
+      
+      img {
+        width: 200px; 
+        height: 100px;
+      }
+
+      svg {
+        width: 200px; 
+        height: 100px;
+        margin-left: 20px;
+      }
+
+      main {
+        width: 90%;
+        margin-top: 20px;
+        padding: 2em;
+      }
+
+      @media screen and (max-width: 800px) {
+
+        section {
+          flex-wrap: wrap;
+          flex-direction: column;
+        }
+
+        .multicol {
+          width: 100%;
+          margin-right: 0em;
+          border-right: none; 
+          margin-bottom: 4em;
+        }
+
+      }
+
+    </style>
+
+  </head>
+  <body>
+  
+  <main role="main">
+        
+    <h1>Build a Web App with Leaflet and D3</h1>
+    <p>The links below will open the html files for the exercises in your browser. Use <a href="https://github.com/berkeley-gif/bootcamp/tree/master/Day_3/Web_App_with_Leaflet_and_D3#exercises">GitHub repo</a> to get instructions for the exercises.
+    </p>
+
+    <section>
+      <div class="multicol">
+        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI2OC43NjUgMjY4Ljc2NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjY4Ljc2NSAyNjguNzY1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+CjxnIGlkPSJTZXR0aW5ncyI+Cgk8Zz4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7IiBkPSJNMjY3LjkyLDExOS40NjFjLTAuNDI1LTMuNzc4LTQuODMtNi42MTctOC42MzktNi42MTcgICAgYy0xMi4zMTUsMC0yMy4yNDMtNy4yMzEtMjcuODI2LTE4LjQxNGMtNC42ODItMTEuNDU0LTEuNjYzLTI0LjgxMiw3LjUxNS0zMy4yMzFjMi44ODktMi42NDEsMy4yNC03LjA2MiwwLjgxNy0xMC4xMzMgICAgYy02LjMwMy04LjAwNC0xMy40NjctMTUuMjM0LTIxLjI4OS0yMS41Yy0zLjA2My0yLjQ1OC03LjU1Ny0yLjExNi0xMC4yMTMsMC44MjVjLTguMDEsOC44NzEtMjIuMzk4LDEyLjE2OC0zMy41MTYsNy41MjkgICAgYy0xMS41Ny00Ljg2Ny0xOC44NjYtMTYuNTkxLTE4LjE1Mi0yOS4xNzZjMC4yMzUtMy45NTMtMi42NTQtNy4zOS02LjU5NS03Ljg0OWMtMTAuMDM4LTEuMTYxLTIwLjE2NC0xLjE5Ny0zMC4yMzItMC4wOCAgICBjLTMuODk2LDAuNDMtNi43ODUsMy43ODYtNi42NTQsNy42ODljMC40MzgsMTIuNDYxLTYuOTQ2LDIzLjk4LTE4LjQwMSwyOC42NzJjLTEwLjk4NSw0LjQ4Ny0yNS4yNzIsMS4yMTgtMzMuMjY2LTcuNTc0ICAgIGMtMi42NDItMi44OTYtNy4wNjMtMy4yNTItMTAuMTQxLTAuODUzYy04LjA1NCw2LjMxOS0xNS4zNzksMTMuNTU1LTIxLjc0LDIxLjQ5M2MtMi40ODEsMy4wODYtMi4xMTYsNy41NTksMC44MDIsMTAuMjE0ICAgIGM5LjM1Myw4LjQ3LDEyLjM3MywyMS45NDQsNy41MTQsMzMuNTNjLTQuNjM5LDExLjA0Ni0xNi4xMDksMTguMTY1LTI5LjI0LDE4LjE2NWMtNC4yNjEtMC4xMzctNy4yOTYsMi43MjMtNy43NjIsNi41OTcgICAgYy0xLjE4MiwxMC4wOTYtMS4xOTYsMjAuMzgzLTAuMDU4LDMwLjU2MWMwLjQyMiwzLjc5NCw0Ljk2MSw2LjYwOCw4LjgxMiw2LjYwOGMxMS43MDItMC4yOTksMjIuOTM3LDYuOTQ2LDI3LjY1LDE4LjQxNSAgICBjNC42OTgsMTEuNDU0LDEuNjc4LDI0LjgwNC03LjUxNCwzMy4yM2MtMi44NzUsMi42NDEtMy4yNCw3LjA1NS0wLjgxNywxMC4xMjZjNi4yNDQsNy45NTMsMTMuNDA5LDE1LjE5LDIxLjI1OSwyMS41MDggICAgYzMuMDc5LDIuNDgxLDcuNTU5LDIuMTMxLDEwLjIyOC0wLjgxYzguMDQtOC44OTMsMjIuNDI3LTEyLjE4NCwzMy41MDEtNy41MzZjMTEuNTk5LDQuODUyLDE4Ljg5NSwxNi41NzUsMTguMTgxLDI5LjE2NyAgICBjLTAuMjMzLDMuOTU1LDIuNjcsNy4zOTgsNi41OTUsNy44NWM1LjEzNSwwLjU5OSwxMC4zMDEsMC44OTgsMTUuNDgxLDAuODk4YzQuOTE3LDAsOS44MzUtMC4yNywxNC43NTItMC44MTcgICAgYzMuODk3LTAuNDMsNi43ODQtMy43ODYsNi42NTMtNy42OTZjLTAuNDUxLTEyLjQ1NCw2Ljk0Ni0yMy45NzMsMTguMzg2LTI4LjY1N2MxMS4wNTktNC41MTcsMjUuMjg2LTEuMjExLDMzLjI4MSw3LjU3MiAgICBjMi42NTcsMi44OSw3LjA0NywzLjIzOSwxMC4xNDIsMC44NDhjOC4wMzktNi4zMDQsMTUuMzQ5LTEzLjUzNCwyMS43NC0yMS40OTRjMi40OC0zLjA3OSwyLjEzLTcuNTU5LTAuODAzLTEwLjIxMyAgICBjLTkuMzUzLTguNDctMTIuMzg4LTIxLjk0Ni03LjUyOS0zMy41MjRjNC41NjgtMTAuODk5LDE1LjYxMi0xOC4yMTcsMjcuNDkxLTE4LjIxN2wxLjY2MiwwLjA0MyAgICBjMy44NTMsMC4zMTMsNy4zOTgtMi42NTUsNy44NjUtNi41ODhDMjY5LjA0NCwxMzkuOTE3LDI2OS4wNTgsMTI5LjYzOSwyNjcuOTIsMTE5LjQ2MXogTTEzNC41OTUsMTc5LjQ5MSAgICBjLTI0LjcxOCwwLTQ0LjgyNC0yMC4xMDYtNDQuODI0LTQ0LjgyNGMwLTI0LjcxNywyMC4xMDYtNDQuODI0LDQ0LjgyNC00NC44MjRjMjQuNzE3LDAsNDQuODIzLDIwLjEwNyw0NC44MjMsNDQuODI0ICAgIEMxNzkuNDE4LDE1OS4zODUsMTU5LjMxMiwxNzkuNDkxLDEzNC41OTUsMTc5LjQ5MXoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+        <h3>0-setup</h3>
+        <p>
+          <a href="./0-setup/src/starter_leaflet_app.html">Build Starter Leaflet Map</a>
+        </p>
+      </div>
+
+      <div class="multicol">
+        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4Ni4zMSA0ODYuMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4Ni4zMSA0ODYuMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ij4KPGc+Cgk8cGF0aCBkPSJNMC4wMTgsMzkzLjA4NmMwLjMzNSw3LjkxLDUuNzgxLDE0LjY3NCwxMy40MzQsMTYuNzA3bDE4My4yNTYsNDguNTU4YzQuMzU1LDEuMTUxLDguODIzLDEuNzIxLDEzLjI3MywxLjcyMSAgIGM1LjcxOCwwLDExLjQxNi0wLjkzNiwxNi44NzgtMi44MThsMjQ3LjIzOC04NS4wNjNjNy42NTUtMi42MzMsMTIuNjMzLTEwLjAyOSwxMi4xODUtMTguMTA5ICAgYy0wLjQ0Ni04LjA4NC02LjIxMS0xNC44ODItMTQuMTA3LTE2LjY2bC0zMS41NTgtNy4wNzZsLTIwMy4wNzksNjkuODc1Yy04Ljg4OCwzLjA2LTE4LjE1Nyw0LjYxMS0yNy41NTgsNC42MTEgICBjLTcuMzAxLDAtMTQuNTg2LTAuOTUxLTIxLjY4MS0yLjgyNkw0My45MzYsMzYzLjc1MmwtMzEuOTc0LDExLjUyQzQuNTE4LDM3Ny45NTUtMC4zMzQsMzg1LjE3NiwwLjAxOCwzOTMuMDg2eiIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTAuMDE4LDMwNS4wNDRjMC4zMzUsNy45MSw1Ljc5NywxNC42NzcsMTMuNDQ5LDE2LjcwOWwxODMuMjQsNDguNTU2YzQuMzU1LDEuMTU0LDguODIzLDEuNzMsMTMuMjczLDEuNzMgICBjNS43MTgsMCwxMS40MTYtMC45NDUsMTYuODc4LTIuODI2bDI0Ny4yMzgtODUuMDY0YzcuNjU1LTIuNjMzLDEyLjYzMy0xMC4wMzEsMTIuMTg1LTE4LjEwOCAgIGMtMC40NDYtOC4wODctNi4yMTEtMTQuODg0LTE0LjEwNy0xNi42NjJsLTMxLjU1OC03LjA3NmwtMjAzLjA3OSw2OS44NzZjLTguODg4LDMuMDU5LTE4LjE1Nyw0LjYwMy0yNy41NTgsNC42MDMgICBjLTcuMzAxLDAtMTQuNTg2LTAuOTQzLTIxLjY4MS0yLjgxN0w0My45MzYsMjc1LjcxMWwtMzEuOTc0LDExLjUyMUM0LjUxOCwyODkuOTEzLTAuMzM0LDI5Ny4xMzUsMC4wMTgsMzA1LjA0NHoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0yMzcuNTM4LDIyNC4xMjhjLTguODg4LDMuMDU5LTE4LjE1Nyw0LjYwNC0yNy41NTgsNC42MDRjLTcuMzAxLDAtMTQuNTg2LTAuOTQ0LTIxLjY4MS0yLjgxOEw0My45MzYsMTg3LjY2OSAgIGwtMzEuOTc0LDExLjUyMWMtNy40NDQsMi42ODItMTIuMjk2LDkuOTA0LTExLjk0NCwxNy44MTRjMC4zMzUsNy45MDgsNS43OTcsMTQuNjc0LDEzLjQ0OSwxNi43MDdsMTgzLjI0LDQ4LjU1NyAgIGM0LjM1NSwxLjE1Miw4LjgyMywxLjcyMiwxMy4yNzMsMS43MjJjNS43MTgsMCwxMS40MTYtMC45MzcsMTYuODc4LTIuODE3bDI0Ny4yMzgtODUuMDY1YzcuNjU1LTIuNjM0LDEyLjYzMy0xMC4wMzIsMTIuMTg1LTE4LjEwOSAgIGMtMC40NDYtOC4wODYtNi4yMTEtMTQuODgzLTE0LjEwNy0xNi42NmwtMzEuNTU4LTcuMDc4TDIzNy41MzgsMjI0LjEyOHoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0xMy40NTIsMTQ1LjY2MmwxODMuMjU2LDQ4LjU1N2M0LjM1NSwxLjE1Miw4LjgyMywxLjcyMSwxMy4yNzMsMS43MjFjNS43MTgsMCwxMS40MTYtMC45MzcsMTYuODc4LTIuODE4bDI0Ny4yMzgtODUuMDYzICAgYzcuNjU1LTIuNjM1LDEyLjYzMy0xMC4wMzEsMTIuMTg1LTE4LjEwOWMtMC40NDYtOC4wODctNi4yMTEtMTQuODgzLTE0LjEwNy0xNi42NjFMMjY4LjAwOCwyNy40OTQgICBjLTMuNzQ4LTAuODQxLTcuNTU3LTEuMjU2LTExLjM1Mi0xLjI1NmMtNS45NzMsMC0xMS45MTIsMS4wMjMtMTcuNTgyLDMuMDY2TDExLjk2MiwxMTEuMTQgICBjLTcuNDQ0LDIuNjgyLTEyLjI5Niw5LjkwNC0xMS45NDQsMTcuODE0QzAuMzUzLDEzNi44NjQsNS43OTksMTQzLjYyOCwxMy40NTIsMTQ1LjY2MnoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+        <h3>1-data</h3>
+        <p>
+          <a href="./1-data/src/add_basemaps.html">Add basemaps</a>
+        </p>
+        <p>
+          <a href="./1-data/src/add_thematic_data.html">Add thematic data</a>
+        </p>
+        <p>
+          <a href="./1-data/src/add_thematic_data_and_style.html">Add thematic data and style</a>
+        </p>
+        <p>
+          <a href="./1-data/src/add_thematic_data_from_cartodb.html">Add thematic data from CartoDB</a>
+        </p>
+        <p>
+          <a href="./1-data/src/add_thematic_data_counties.html">Add thematic data - counties</a>
+        </p>
+      </div>
+
+      <div class="multicol">
+        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU5NS4yOCA1OTUuMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU5NS4yOCA1OTUuMjg7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ij4KPGc+Cgk8Y2lyY2xlIGN4PSIxMDEuMTUxIiBjeT0iNjMuMDE2IiByPSI2My4wMTYiIGZpbGw9IiMwMDAwMDAiLz4KCTxjaXJjbGUgY3g9IjQ5NC4zNjEiIGN5PSI2My4wMTYiIHI9IjYzLjAxNiIgZmlsbD0iIzAwMDAwMCIvPgoJPGNpcmNsZSBjeD0iNDk0LjM2MSIgY3k9IjM5OC43OTEiIHI9IjYyLjc4MyIgZmlsbD0iIzAwMDAwMCIvPgoJPGNpcmNsZSBjeD0iMTAxLjE1MSIgY3k9IjM5OC43OTEiIHI9IjYzLjAxNiIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTU3OS43LDIxNC4xNjFjMC00NS4zNDQtMzguMTM1LTgxLjg1MS04NS4xMDYtODEuODUxYy00Ny4yMDQsMC04NS4zMzksMzYuNzQtODUuMzM5LDgxLjg1MXYyOS43NjQgICBsLTQ5LjUyOSw1Mi43ODVIMjM3LjE4MmwtNTAuOTI0LTU0LjE4di0yOC4zNjljMC00NS4zNDQtMzguMTM1LTgxLjg1MS04NS4zMzktODEuODUxUzE1LjU4LDE2OS4wNSwxNS41OCwyMTQuMTYxdjQ1LjU3NkgxNjguMTIgICBsNDEuODU2LDQ0LjY0NnY5OC44MjZsLTQ5LjA2NCw4OC4zNjJjLTE1LjM0Ny0xNC42NDktMzYuNTA3LTIzLjcxOC01OS43NjEtMjMuNzE4Yy00Ny4yMDQsMC04NS4zMzksMzYuNzQtODUuMzM5LDgxLjg1MXY0NS41NzYgICBoMTcwLjQ0NXYtNDUuNTc2YzAtMTMuMjU0LTMuNDg4LTI1LjM0Ni05LjMwMS0zNi41MDdsNTkuMDYzLTEwNS4zMzdoMTI0LjYzN2w1OC4zNjUsMTA0LjE3NCAgIGMtNi4wNDYsMTEuMzk0LTkuOTk5LDIzLjk1MS05Ljk5OSwzNy42N3Y0NS41NzZoMTcwLjQ0NXYtNDUuNTc2YzAtNDUuMzQ0LTM4LjEzNS04MS44NTEtODUuMTA2LTgxLjg1MSAgIGMtMjIuNzg4LDAtNDMuNDgzLDguODM2LTU4LjgzLDIyLjc4OGwtNTQuMTgtOTYuOTY2di04My43MTFsNDYuOTcxLTUwLjIyN0g1NzkuN1YyMTQuMTYxTDU3OS43LDIxNC4xNjF6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+        <h3>2-interaction</h3>
+        <p>
+          <a href="./2-interaction/src/add_a_geocoder.html">Add a geocoder</a>
+        </p>
+        <p>
+          <a href="./2-interaction/src/spatial_analysis_in_your_browser.html">Spatial analysis in your browser</a>
+        </p>
+      </div>      
+
+      <div class="multicol">
+        <svg width="96" height="91" style="position:relative;top:22px;">
+          <clipPath id="clip">
+            <path d="M0,0h7.75a45.5,45.5 0 1 1 0,91h-7.75v-20h7.75a25.5,25.5 0 1 0 0,-51h-7.75zm36.2510,0h32a27.75,27.75 0 0 1 21.331,45.5a27.75,27.75 0 0 1 -21.331,45.5h-32a53.6895,53.6895 0 0 0 18.7464,-20h13.2526a7.75,7.75 0 1 0 0,-15.5h-7.75a53.6895,53.6895 0 0 0 0,-20h7.75a7.75,7.75 0 1 0 0,-15.5h-13.2526a53.6895,53.6895 0 0 0 -18.7464,-20z"></path>
+          </clipPath>
+          <linearGradient id="gradient-1" gradientUnits="userSpaceOnUse" x1="7" y1="64" x2="50" y2="107">
+            <stop offset="0" stop-color="#f9a03c"></stop>
+            <stop offset="1" stop-color="#f7974e"></stop>
+          </linearGradient>
+          <linearGradient id="gradient-2" gradientUnits="userSpaceOnUse" x1="2" y1="-2" x2="87" y2="84">
+            <stop offset="0" stop-color="#f26d58"></stop>
+            <stop offset="1" stop-color="#f9a03c"></stop>
+          </linearGradient>
+          <linearGradient id="gradient-3" gradientUnits="userSpaceOnUse" x1="45" y1="-10" x2="108" y2="53">
+            <stop offset="0" stop-color="#b84e51"></stop>
+            <stop offset="1" stop-color="#f68e48"></stop>
+          </linearGradient>
+          <g clip-path="url(#clip)">
+            <path d="M-100,-102m-27,0v300h300z" fill="url(#gradient-1)"></path>
+            <path d="M-100,-102m27,0h300v300z" fill="url(#gradient-3)"></path>
+            <path d="M-100,-102l300,300" fill="none" stroke="url(#gradient-2)" stroke-width="40"></path>
+          </g>
+        </svg>
+        <h3>3-d3</h3>
+        <p>
+          <a href="./3-d3/src/add_a_d3_chart.html">Add a d3 chart</a>
+        </p>
+        <p>
+          <a href="./3-d3/src/add_a_reusable_d3_chart.html">Add a reusable d3 chart</a>
+        </p>
+        <p>
+          <a href="./3-d3/src/create_multiple_d3_barcharts.html">Create multiple d3 bar charts</a>
+        </p>
+      </div>      
+
+      <div class="multicol" style="border-right:none;">
+        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDEyMS45NDYgMTIxLjk0NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIxLjk0NiAxMjEuOTQ2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTUwLjA3Nyw5OC45MTlsLTIuNzgtMS4wMjRjMC4yMTktMi4wMjcsMC4xNDctNC4wOTMtMC4yMzQtNi4xNDZsMi42ODQtMS4yMzdjMS42NzctMC43NzEsMi40MTItMi43NjUsMS42MzktNC40NDEgICAgbC0xLjU2Ny0zLjRjLTAuNzcyLTEuNjc2LTIuNzYzLTIuNDEzLTQuNDM3LTEuNjQxbC0yLjY4OCwxLjIzOWMtMS4zMTMtMS42MjctMi44MzctMy4wMjMtNC41MTktNC4xNzZsMS4wMjYtMi43NzUgICAgYzAuNjM4LTEuNzMxLTAuMjUtMy42NjEtMS45OC00LjMwMWwtMy41MTUtMS4yOThjLTEuNjc3LTAuNjE3LTMuNjgsMC4zMDUtNC4yOTgsMS45NzlsLTEuMDI1LDIuNzc4ICAgIGMtMi4wMjUtMC4yMTYtNC4wOTEtMC4xNDYtNi4xNDYsMC4yMzNMMjEsNzIuMDI0Yy0wLjc3Mi0xLjY3Ni0yLjc2NS0yLjQxMi00LjQzOS0xLjY0MWwtMy40MDMsMS41NjUgICAgYy0xLjY3NiwwLjc3My0yLjQxLDIuNzY4LTEuNjQsNC40NDFsMS4yMzcsMi42ODRjLTEuNjI0LDEuMzE1LTMuMDIzLDIuODM5LTQuMTc0LDQuNTIzbC0yLjc3NC0xLjAyNiAgICBjLTEuNjc1LTAuNjI0LTMuNjgxLDAuMy00LjMwMiwxLjk3OWwtMS4yOTcsMy41MTVjLTAuMzA5LDAuODQtMC4yNzMsMS43NDksMC4xLDIuNTYxYzAuMzc2LDAuODEyLDEuMDQ0LDEuNDMsMS44OCwxLjczNSAgICBsMi43OCwxLjAyOGMtMC4yMiwyLjAyNC0wLjE0OCw0LjA5NCwwLjIzNCw2LjE0NmwtMi42ODcsMS4yMzdjLTEuNjc2LDAuNzcxLTIuNDEsMi43NjMtMS42MzksNC40MzhsMS41NjgsMy40MDQgICAgYzAuNzcyLDEuNjc1LDIuNzYzLDIuNDExLDQuNDM4LDEuNjM4bDIuNjg3LTEuMjM1YzEuMzEzLDEuNjI2LDIuODM2LDMuMDIxLDQuNTIsNC4xNzRsLTEuMDI2LDIuNzc3ICAgIGMtMC4zMTIsMC44MzgtMC4yNzYsMS43NDUsMC4xLDIuNTU5YzAuMzcxLDAuODEyLDEuMDQxLDEuNDMyLDEuODc5LDEuNzQzbDMuNTE1LDEuMjk2YzAuODM2LDAuMzEsMS43NDcsMC4yNzMsMi41NTktMC4wOTkgICAgYzAuODEzLTAuMzc1LDEuNDMtMS4wNDMsMS43MzgtMS44ODJsMS4wMjctMi43NzljMi4wMjUsMC4yMiw0LjA5MywwLjE0Nyw2LjE0Ny0wLjIzMWwxLjIzNSwyLjY4NSAgICBjMC43NzIsMS42NzQsMi43NjYsMi40MSw0LjQ0LDEuNjM4bDMuNDAyLTEuNTY2YzEuNjc4LTAuNzcxLDIuNDEzLTIuNzYzLDEuNjM5LTQuNDM5bC0xLjIzNy0yLjY4NSAgICBjMS42MjYtMS4zMTQsMy4wMjQtMi44MzgsNC4xNzMtNC41MmwyLjc3OCwxLjAyN2MwLjg0MSwwLjMxMSwxLjc1LDAuMjcyLDIuNTYzLTAuMTAzYzAuODEtMC4zNzQsMS40MjYtMS4wNDIsMS43MzYtMS44NzkgICAgbDEuMjk3LTMuNTE1QzUyLjY5NSwxMDEuNDg4LDUxLjgwNyw5OS41Niw1MC4wNzcsOTguOTE5eiBNMzEuNjY5LDEwNy42NjJjLTEuNzU0LDAuODA5LTMuNjE1LDEuMjE2LTUuNTMzLDEuMjE2ICAgIGMtNS4xNTIsMC05Ljg3Mi0zLjAyMi0xMi4wMjUtNy42OTdjLTMuMDUyLTYuNjMxLTAuMTQ0LTE0LjUwNyw2LjQ4My0xNy41NTljMS43NTMtMC44MDksMy42MTQtMS4yMTcsNS41MjktMS4yMTcgICAgYzUuMTUxLDAsOS44NzUsMy4wMjEsMTIuMDI5LDcuNjk3QzQxLjIwNCw5Ni43MzMsMzguMjk1LDEwNC42MDksMzEuNjY5LDEwNy42NjJ6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTgzLjE3OSwxMDguNWwtMS41NDctMC41NjljMC4xMjMtMS4xMjksMC4wODItMi4yOC0wLjEzMS0zLjQyM2wxLjQ5NC0wLjY4OWMwLjkzNS0wLjQyOCwxLjM0NC0xLjUzOCwwLjkxMy0yLjQ3MyAgICBsLTAuODcyLTEuODk0Yy0wLjQzMi0wLjkzNS0xLjUzOS0xLjM0Ni0yLjQ3MS0wLjkxNGwtMS40OTcsMC42ODljLTAuNzMtMC45MDUtMS41OC0xLjY4NS0yLjUxNS0yLjMyNWwwLjU3LTEuNTQ2ICAgIGMwLjM1NS0wLjk2NC0wLjE0LTIuMDM3LTEuMTAzLTIuMzk2bC0xLjk1OC0wLjcyMmMtMC45MzQtMC4zNDYtMi4wNDgsMC4xNjgtMi4zOTQsMS4xMDJsLTAuNTcxLDEuNTQ4ICAgIGMtMS4xMjYtMC4xMjEtMi4yNzgtMC4wODEtMy40MjEsMC4xM2wtMC42ODgtMS40OTNjLTAuNDMyLTAuOTM0LTEuNTQxLTEuMzQ1LTIuNDc0LTAuOTE0bC0xLjg5NSwwLjg3MyAgICBjLTAuOTM0LDAuNDMyLTEuMzQyLDEuNTQtMC45MTMsMi40NzNsMC42ODksMS40OTVjLTAuOTA1LDAuNzMyLTEuNjg0LDEuNTgxLTIuMzI2LDIuNTE5bC0xLjU0NC0wLjU3ICAgIGMtMC45MzEtMC4zNDctMi4wNDksMC4xNjUtMi4zOTQsMS4xMDFsLTAuNzI0LDEuOTU4Yy0wLjE3MSwwLjQ2OC0wLjE1LDAuOTc1LDAuMDU1LDEuNDI3YzAuMjEsMC40NSwwLjU4MywwLjc5NSwxLjA0OSwwLjk2NiAgICBsMS41NDcsMC41NzJjLTAuMTIzLDEuMTI5LTAuMDgzLDIuMjc4LDAuMTMsMy40MjNsLTEuNDk1LDAuNjg4Yy0wLjkzNCwwLjQzMS0xLjM0MywxLjUzOC0wLjkxMywyLjQ3MmwwLjg3NCwxLjg5NiAgICBjMC40MjksMC45MzIsMS41MzgsMS4zNDMsMi40NzEsMC45MTNsMS40OTUtMC42ODhjMC43MzEsMC45MDUsMS41ODEsMS42ODMsMi41MTksMi4zMjNsLTAuNTcxLDEuNTQ1ICAgIGMtMC4xNzQsMC40NjgtMC4xNTQsMC45NzUsMC4wNTUsMS40MjdjMC4yMDgsMC40NTEsMC41NzksMC43OTcsMS4wNDgsMC45NzFsMS45NTYsMC43MjJjMC40NjcsMC4xNzIsMC45NzIsMC4xNTIsMS40MjUtMC4wNTYgICAgczAuNzk3LTAuNTgsMC45NjgtMS4wNDZsMC41NzEtMS41NWMxLjEyOSwwLjEyMywyLjI3OCwwLjA4NCwzLjQyMy0wLjEyOWwwLjY4OCwxLjQ5NWMwLjQzLDAuOTMyLDEuNTM5LDEuMzQzLDIuNDcxLDAuOTExICAgIGwxLjg5Ni0wLjg3MmMwLjkzNC0wLjQzMiwxLjM0Mi0xLjUzOCwwLjkxMi0yLjQ3MmwtMC42ODgtMS40OTZjMC45MDQtMC43MzEsMS42ODQtMS41NzgsMi4zMjMtMi41MTZsMS41NDcsMC41NyAgICBjMC40NjgsMC4xNzUsMC45NzUsMC4xNTIsMS40MjgtMC4wNTZjMC40NDktMC4yMDcsMC43OTUtMC41ODEsMC45NjctMS4wNDdsMC43MjItMS45NTcgICAgQzg0LjYzNiwxMDkuOTMyLDg0LjE0MSwxMDguODU2LDgzLjE3OSwxMDguNXogTTcyLjkyOSwxMTMuMzdjLTAuOTc3LDAuNDQ4LTIuMDEyLDAuNjc3LTMuMDgsMC42NzcgICAgYy0yLjg2OCwwLTUuNDk3LTEuNjg0LTYuNjk2LTQuMjg3Yy0xLjctMy42OS0wLjA4Mi04LjA3NywzLjYxLTkuNzc1YzAuOTc2LTAuNDUsMi4wMTItMC42NzcsMy4wNzktMC42NzcgICAgYzIuODY3LDAsNS40OTYsMS42ODIsNi42OTYsNC4yODVDNzguMjM2LDEwNy4yODQsNzYuNjE4LDExMS42NjgsNzIuOTI5LDExMy4zN3oiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMTE4LjI2OSw0OS41OTdsLTQuNjczLTEuNzI1YzAuMzY5LTMuNDA3LDAuMjQ4LTYuODgyLTAuMzkzLTEwLjMzN2w0LjUxNC0yLjA3N2MyLjgxNi0xLjI5NCw0LjA1Mi00LjY0NywyLjc1NC03LjQ2OCAgICBsLTIuNjM0LTUuNzE4Yy0xLjI5OC0yLjgxOS00LjY0Ni00LjA1OS03LjQ2MS0yLjc1OWwtNC41MTksMi4wODRjLTIuMjA4LTIuNzM1LTQuNzcxLTUuMDgyLTcuNTk2LTcuMDJsMS43MjMtNC42NjggICAgYzEuMDcyLTIuOTExLTAuNDE4LTYuMTU1LTMuMzI4LTcuMjI5bC01LjkwOS0yLjE4NmMtMi44MTgtMS4wMzYtNi4xODYsMC41MTUtNy4yMjgsMy4zM2wtMS43MjQsNC42NzMgICAgYy0zLjQwNS0wLjM2Ni02Ljg4MS0wLjI0NS0xMC4zMzMsMC4zOTFsLTIuMDgtNC41MWMtMS4yOTgtMi44MTktNC42NDYtNC4wNTYtNy40NjUtMi43NThsLTUuNzIsMi42MzQgICAgYy0yLjgxOCwxLjI5OS00LjA1NSw0LjY1LTIuNzU5LDcuNDY2bDIuMDgzLDQuNTEzYy0yLjczMSwyLjIxMS01LjA4Myw0Ljc3My03LjAyLDcuNjAzbC00LjY2NS0xLjcyNCAgICBjLTIuODE1LTEuMDQ5LTYuMTg4LDAuNTA0LTcuMjMsMy4zMjRsLTIuMTgxLDUuOTEyYy0wLjUyMSwxLjQxLTAuNDYsMi45MzgsMC4xNjYsNC4zMDRjMC42MzQsMS4zNjQsMS43NTgsMi40MDMsMy4xNjMsMi45MTcgICAgbDQuNjczLDEuNzNjLTAuMzcxLDMuNDAzLTAuMjUsNi44ODIsMC4zOTIsMTAuMzM1bC00LjUxNCwyLjA3OGMtMi44MTksMS4yOTktNC4wNTMsNC42NDUtMi43NTYsNy40NjFsMi42MzUsNS43MjQgICAgYzEuMjk4LDIuODEzLDQuNjQ2LDQuMDU0LDcuNDYzLDIuNzU1bDQuNTE1LTIuMDhjMi4yMDgsMi43MzUsNC43NzEsNS4wODMsNy42MDIsNy4wMTlsLTEuNzI2LDQuNjY5ICAgIGMtMC41MjQsMS40MDctMC40NjMsMi45MzYsMC4xNjcsNC4zMDNjMC42MjYsMS4zNjQsMS43NTEsMi40MDYsMy4xNTksMi45MjlsNS45MDksMi4xNzljMS40MDksMC41MjEsMi45MzgsMC40NjEsNC4zMDMtMC4xNjQgICAgYzEuMzY3LTAuNjMsMi40MDQtMS43NTQsMi45MjItMy4xNjNsMS43MjktNC42NzVjMy40MDQsMC4zNzEsNi44NzksMC4yNSwxMC4zMzYtMC4zODlsMi4wNzYsNC41MTIgICAgYzEuMjk4LDIuODE0LDQuNjQ4LDQuMDU2LDcuNDY2LDIuNzU1bDUuNzItMi42MzRjMi44MjEtMS4zLDQuMDU0LTQuNjQ2LDIuNzU1LTcuNDY0bC0yLjA3OS00LjUxMyAgICBjMi43MzItMi4yMTMsNS4wODQtNC43NzEsNy4wMTctNy42MDFsNC42NzIsMS43MjljMS40MTEsMC41MjEsMi45NCwwLjQ1OSw0LjMwNy0wLjE3MWMxLjM2Mi0wLjYyOCwyLjM5OC0xLjc1MywyLjkxOS0zLjE1OSAgICBsMi4xODQtNS45MTFDMTIyLjY3MSw1My45MTQsMTIxLjE3OCw1MC42NywxMTguMjY5LDQ5LjU5N3ogTTg3LjMyMiw2NC4yOTRjLTIuOTUsMS4zNTctNi4wNzgsMi4wNDYtOS4zMDEsMi4wNDYgICAgYy04LjY2MywwLTE2LjU5Ny01LjA4Mi0yMC4yMi0xMi45NDVDNTIuNjY5LDQyLjI0OSw1Ny41NTksMjkuMDA3LDY4LjcsMjMuODc2YzIuOTQ3LTEuMzU5LDYuMDc3LTIuMDQ1LDkuMjk3LTIuMDQ1ICAgIGM4LjY2MiwwLDE2LjYwMSw1LjA3OSwyMC4yMjQsMTIuOTRDMTAzLjM1MSw0NS45Miw5OC40NjMsNTkuMTYzLDg3LjMyMiw2NC4yOTR6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+        <h3>4-resources</h3>
+        <p>
+          <a href="./4-resources/resources.html">Resources</a>
+        </p>
+      </div>
+
+      
+    </section>
+  
+  </main>
+
+
+  <footer>
+    <p><i>Spatial Data Science Bootcamp 2016</i></p>
+  </footer>
+
+  </body>
+</html>
