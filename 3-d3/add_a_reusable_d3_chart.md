@@ -8,9 +8,9 @@ If you are new to D3 you can get API documentation [here](https://d3js.org/).
 
 1. A reusable chart can be used for inserting the chart to any DOM element, possibly multiple times on the same page, albeit with different data. With the code you added in the earlier excercise (add_a_d3_chart), if you wanted to add a second chart to the page you have to repeat the code all over again. 
 
-2. A good place to start by reading [Towards Resuable Charts](https://bost.ocks.org/mike/chart/) where Mike Bostock proposes a convention for creating reusable charts.
+2. A good place to start is by reading [Towards Resuable Charts](https://bost.ocks.org/mike/chart/) where Mike Bostock proposes a convention for creating reusable charts.
 
-3. [This](https://bocoup.com/weblog/reusability-with-d3) blog post and [this book](http://backstopmedia.booktype.pro/developing-a-d3js-edge/1-getting-started/) do a great job os clarifying the resuable charts api with examples and explanations.
+3. [This](https://bocoup.com/weblog/reusability-with-d3) blog post and [this book](http://backstopmedia.booktype.pro/developing-a-d3js-edge/1-getting-started/) do a great job on clarifying the resuable charts api with examples and explanations.
 
 4. Create a new js file `src/bar_chart.js`. This file needs to be loaded before your main applciation js file. We will also move the chart css to a separate file. The following tags area already added to the html file for this exercise
 
