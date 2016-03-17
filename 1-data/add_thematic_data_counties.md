@@ -202,6 +202,11 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 5. If you hover over a county it will add County name and population to the sidebar
 
+6. Other options for dealing with large files
+ * Create vector/image tile services using ESRI, CartoDB, MapBox or your own stack.
+ * Load only parts of the geojson file, depending on map view.  
+ * Create geojson vector tiles on the client side - [geojson-vt](https://www.mapbox.com/blog/introducing-geojson-vt/). Checkout [OVRDC Open Parcel Viewer](https://github.com/ovrdc/parcel-viewer)
+
 
 __Step through the code, read the comments to understand what's happening at each step. Ask questions!__
 
