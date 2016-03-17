@@ -31,7 +31,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 2. In Chrome, navigate to `http://localhost:8000/1-data/src/add_basemaps.html`. You should see a map zoomed out to California.
 
-3. Experiment with different basemaps such as `Stamen Watercolor` or `CartoDB DarkMatter`]. You can find code and preview the basemap options [here](http://leaflet-extras.github.io/leaflet-providers/preview/index.html).
+3. Experiment with different basemaps such as `Stamen Watercolor` or `CartoDB DarkMatter`. You can find code and preview the basemap options [here](http://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 
 4. As usual, if you make changes to your html, css or js file make sure you refresh browser to see your changes.
 
