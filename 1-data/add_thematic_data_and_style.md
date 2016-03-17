@@ -97,7 +97,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
     ```
 
-4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data.html`. You should see markers added to your map for tick locations using styles we specified in the geojsonMarkerOptions object.
+4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data_and_style.html`. You should see markers added to your map for tick locations using styles we specified in the geojsonMarkerOptions object.
 
 5. If you click on a marker it will open a popup with text we specified in the bindPopup function.
 
