@@ -42,7 +42,7 @@ The exercises here are designed to showcase some ways you can use Leaflet and D3
 
 ### 0. Setup Your Development Environment
 * [Start a Local Server](./0-setup/start_a_local_server.md)
-* [Build a starter Leaflet app](./0-setup/build_starter_leaflet_app.md)
+* [Build a starter Leaflet app](./0-setup/starter_leaflet_app.md)
 
 ### 1. Data
 
