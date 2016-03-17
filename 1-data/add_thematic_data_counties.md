@@ -8,101 +8,173 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 1. Our js code is going to get bigger. Let's move it to a separate js file and reference that in our html file. This way we can take better advantage of syntax highlighting that code editors like Sublime Text provide and reserve the html file for content.
 
-2. We are also going to move the code inside a Immediately Invoked Function Expression (IIFE) block to prevent us from creating any global variables that could cause conflicts later on. Read more on IIFE [here](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) and [here](http://gregfranko.com/blog/i-love-my-iife/). It looks like this:
 
-    ```js
-    // Anonymous function, i.e. function without a name
-    (function(){
-      // my special code
-    }()); // The parentheses make sure the anonymous function gets called immediately
 
-    ```
-
-3. Leaflet allows you to pass a variety of callbacks as options to `L.geoJson` - nicely summarized [here](http://savaslabs.com/2015/05/18/mapping-geojson.html#adding-popups)
-
-3. Copy and paste the code below into the [add_thematic_data_and_style.js](./src/add_thematic_data_and_style.js).
+3. Copy and paste the code below into src/add_thematic_data_and_counties.js
 
     ```javascript
+/********************************************************************************
+    ADD COUNTY POLYGONS
+  ********************************************************************************/
 
-      /********************************************************************************
-      ADD TICK LOCATIONS
-      ********************************************************************************/
-  
-      // Intialize a variable to holda Leaflet geoJson layer
-      var tickLocations;
+  // Create a new L.TopoJSON layer
+  var countyLayer = new L.TopoJSON();
 
-      // Create object to hold options for styling a custom marker
-      var geojsonMarkerOptions = {
-        radius: 4,
-        fillColor: "#DE7A22",
-        color: "#C56109",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.5
-      };
+  // Create a color scale for styling counties
+  var colorScale = chroma.scale(['4CB5F5', '34675C']);
+  var colorScaleDataValues = [];
 
-      // Create a function to create a custom marker
-      function createMarker(feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
+  // The code below is another way to use jQuery's $.getJSON method
+  // See https://davidwalsh.name/write-javascript-promises
+  // Use the promise object returned by the $.getJSON method. 
+  // When the response is returned, the .done method is called with the function (callback)
+  // you provide. If the request fails, the .fail method is called.
+  $.getJSON('data/ca_counties_census.topo.json')
+    .done(addCountyData)
+    .fail(function() {
+      $('body').append('<p>Oh no, something went wrong with the county layer!</p>');
+  });
+
+
+  function addCountyData(topoData){
+
+    // This is calling the addData method of the new L.TopoJSON layer we defined earlier
+    countyLayer.addData(topoData);
+    
+    // This is calling the addTo method of Leaflet's L.layerGroup
+    countyLayer.addTo(map);
+
+    // This is calling the eachLayer method of Leaflet's L.layerGroup
+    // Note: L.TopoJSON extends L.GeoJSON extends L.FeatureGroup extends L.layerGroup
+    // It iterates over the layers of the group and calls function addToDomain that we define below
+    countyLayer.eachLayer(addToDomain);
+
+    // Calculate quantile breaks for color scale
+    calcQuantileBreaks();
+
+    // Add legend
+    addLegend();
+
+    // For each layer it call function handleLayer that we define below
+    countyLayer.eachLayer(handleLayer);
+
+    // Move data behind tick locations
+    countyLayer.bringToBack();
+
+    // Add overlay to layer control
+    layerControl.addOverlay(countyLayer, "CA Counties");
+  }
+
+
+  // Add population density values to color scale
+  function addToDomain(layer){
+    var value = layer.feature.properties.POP2014/layer.feature.properties.SQMI;
+    layer.feature.properties['POP2014_SQMI'] = value;
+    colorScaleDataValues.push(value);
+  }
+
+
+  // Calculate quantile breaks for color scale
+  function calcQuantileBreaks(){
+    colorScale.domain(colorScaleDataValues, 5, 'quantiles');
+  }
+
+
+  // Add legend
+  // Inspiration for this legend https://www.mapbox.com/mapbox.js/example/v1.0.0/custom-legend/
+  function addLegend(){
+
+    // Get colors from color scale
+    // Returns 5 colors since we specified 5 classes earlier
+    var colors = colorScale.colors();
+
+    // Append a new span element for each color
+    colors.forEach(function(hexValue){
+      $('.legend').append("<span style='background:" + hexValue + ";'></span>")
+    });
+
+    // Get range from color scale
+    // Returns 6 values that bound the 5 classes
+    var rangeValues = colorScale.domain();
+
+    // Append a new label element for first 2 range values
+    $('.legend').append("<label>" + Math.round(rangeValues[0]) + " - " + Math.round(rangeValues[1]) + "</label>")
+    
+    // Filter out the first two range values and create a new array
+    var labels = rangeValues.filter(function(val, idx){
+      if (idx > 1) {
+        return val;
       }
-
-      // Create a function to generate popup content
-      function bindPopup(feature, layer) {
-        var popupText = feature.properties.Location;
-        if (feature.Specific_Location_Information != undefined) {
-          popupText = popupText + " (" + feature.specific_location_information + ")";
-        }
-        layer.bindPopup(popupText);
-      }
-
-      // Use ajax call to get data. After data comes back apply styles and bind popup
-      // If you're experienced with jQuery, you'll recognize we're making a GET 
-      // request and expecting JSON in the response body. 
-      // We're also passing in a callback function that takes the response JSON and adds it to the document.
-      $.getJSON("data/tick_locations.geojson", function(data) {
-
-        // Create new L.geoJson layer with data recieved from geojson file
-        // and set the tickLocations variable to new L.geoJson layer
-        tickLocations = L.geoJson(data, {
-          pointToLayer: createMarker,
-          onEachFeature: bindPopup
-        });
-
-        // Add tick locations to map
-        tickLocations.addTo(map);
-
-        // Add tick locations layer as an overlay to layer control
-        // Note: $.getJSON method is asynchronous. Although we intialize layerControl later in the code
-        // it should already exists by the time this code runs. 
-        layerControl.addOverlay(tickLocations, "Tick Collection Locations");
-
-      });
+    });
+    // Append a new label element for remaining range values
+    labels.forEach(function(label){
+      $('.legend').append("<label>" + Math.round(label) + "</label>")
+    });
+  }
 
 
+  // Style each layer
+  function handleLayer(layer){
+
+    // Get population density and corresponding color (hexvalue) from color scale
+    var popDensity = (layer.feature.properties.POP2014_SQMI);
+    var fillColor = colorScale(popDensity).hex();  
+    
+    // Style polygons
+    layer.setStyle({
+      fillColor : fillColor,
+      fillOpacity: 1,
+      color:'#B7B8B6',
+      weight:2,
+      opacity:.5
+    });
+    
+    // Attach events to each polygon
+    layer.on({
+      mouseover : enterLayer,
+      mouseout: leaveLayer
+    });
+
+  }
+
+
+  // Function fired when user's mouse enters the layer
+  function enterLayer(){
+
+    var county = this.feature;
+
+    // Get county name and pop. density and create a new html string
+    var countyName = county.properties.CountyNAME;
+    var density = county.properties.POP2014_SQMI;
+    var html = countyName + '<br/>' + Math.round(density) + ' people / square mile';
+
+    // Append html string to p element with .info class
+    $('.info').html(html);
+    
+    // Change style of polygon
+    this.setStyle({
+      weight:3,
+      opacity: 1
+    });
+
+  }
+
+
+  // Function fired when user's mouse leaves the layer
+  function leaveLayer(){
+    $('.info').text('Hover over a county');
+    this.setStyle({
+      weight:2,
+      opacity:.5
+    });
+  }
     ```
 
-3. Let's also add a Leaflet Layer Control to the bottom left of our map. Experiment with different [options](http://leafletjs.com/reference.html#control) you can pass to Leaflet Controls
-
-    ```javascript
-
-      /********************************************************************************
-        ADD LAYER CONTROL
-      ********************************************************************************/
-
-      // Create a new Leaflet layer control
-      var layerControl = L.control.layers(null, null, { position: 'bottomleft' }).addTo(map);
-
-      // Add basemap defined earlier to layer control
-      layerControl.addBaseLayer(CartoDB_Positron, "Grayscale");
-
-
-    ```
-
-4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data.html`. You should see markers added to your map for tick locations using styles we specified in the geojsonMarkerOptions object.
+4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_counties.html`. 
 
 5. If you click on a marker it will open a popup with text we specified in the bindPopup function.
 
-__Read through the comments in the code to understand what's happening at each step.__
+__Step through the code, read the comments to understand what's happening at each step. Ask questions!__
 
 __Remember to refresh your browser to see your changes.__
 
