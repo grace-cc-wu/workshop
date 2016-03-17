@@ -5,7 +5,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 ###Steps
 
-1. Copy and paste the code below into the [add_thematic_data.html](./src/add_thematic_data.html).
+1. Copy and paste the code below into src/add_thematic_data.html.
 
     ```html
 
