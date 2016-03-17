@@ -36,6 +36,8 @@ If you are new to Leafet you can get the examples and API documentation [here](h
     </script>
  ```
 
+3. You can convert geojson to topojson using [mapshaper.org](http://mapshaper.org/). Compare the file sizes between geojson and topojson. You can also further reduce file size by simplifying the geometry. It depends on your app, how much detail you need to show.
+
 3. Copy and paste the code below into src/add_thematic_data_and_counties.js
 
     ```javascript
@@ -199,6 +201,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data_counties.html`. 
 
 5. If you hover over a county it will add County name and population to the sidebar
+
 
 __Step through the code, read the comments to understand what's happening at each step. Ask questions!__
 
