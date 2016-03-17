@@ -2,11 +2,13 @@
 
 In this exercise we are going to experiment with adding a bar chart created with D3.
  
-If you are new to Leafet you can get the examples and API documentation [here](http://leafletjs.com/).
+If you are new to D3 you can get API documentation [here](https://d3js.org/).
 
 ###Steps
 
-1. Best way to learn D3 is by searching for blocks. [This](http://blockbuilder.org/) is a great place to start.
+1. If you are new to D3 and data visualization, Scott Murray's [book](http://alignedleft.com/work/d3-book) is a great resource.
+
+2. Once you are familiar with basic D3 concepts, the best way to start creating visualization components and learn more is by searching for blocks. [This](http://blockbuilder.org/) is a great place to start. 
 
 2. Load the D3 javascript library. The following is already added to the html file for this exercise
 
