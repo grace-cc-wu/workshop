@@ -5,7 +5,9 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 ###Steps
 
-1. Copy and paste the code below into src/add_thematic_data.html.
+1. We will use the  [Leaflet AJAX plugin](https://github.com/calvinmetcalf/leaflet-ajax) for loading geojson data. Script tags for loading javascript file are already in the html file for the exercise.
+
+2. Copy and paste the code below into src/add_thematic_data.html.
 
     ```html
 
@@ -23,15 +25,34 @@ If you are new to Leafet you can get the examples and API documentation [here](h
       map.addLayer(CartoDB_Positron);
       map.setZoom(6);
 
-      var geojsonLayer = new L.GeoJSON.AJAX("data/tick_locations.geojson");
-      geojsonLayer.addTo(map);
+      //var geojsonLayer = new L.geoJson.AJAX("geojson/tick_locations.geojson");       
+      //geojsonLayer.addTo(map);
+
+
+      var tickLocations = L.geoJson().addTo(map);
+      
+
+      $.getJSON("data/tick_locations.geojson", function(data) {
+        tickLocations.addData(data);
+      });
 
     </script>
 
 
     ```
 
-2. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data.html`. You should see markers added to your map for tick locations using Leaflet's default marker style.
+3. Another way to load geojson is by using jQuery and it's $.getJSON method.
+
+  ```javascript
+
+      var tickLocations = L.geoJson().addTo(map);      
+
+      $.getJSON("data/tick_locations.geojson", function(data) {
+        tickLocations.addData(data);
+      });
+  ```
+
+4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data.html`. You should see markers added to your map for tick locations using Leaflet's default marker style.
 
 __Remember to refresh your browser to see your changes.__
 

@@ -30,23 +30,6 @@
   map.setZoom(6);
 
 
-  /********************************************************************************
-    ADD TICK LOCATIONS FROM CARTODB
-  ********************************************************************************/
-  
-  // Link to tick locations map in CartoDB account 
-  var vizJson = 'https://mukhtyar.cartodb.com/api/v2/viz/83625b06-e7da-11e5-81ed-0e787de82d45/viz.json';
-
-  // Create layer and add to leaflet map
-  cartodb.createLayer(map, vizJson)
-    .addTo(map)
-    .on('done', function(layer) {
-      layerControl.addOverlay(layer, "Tick Collection Locations");
-    })
-    .on('error', function(err) {
-      alert("some error occurred: " + err);
-    });
-
 
   /********************************************************************************
     ADD LAYER CONTROL
@@ -57,6 +40,11 @@
 
   // Add basemap defined earlier to layer control
   layerControl.addBaseLayer(CartoDB_Positron, "Grayscale");
+
+
+  /********************************************************************************
+    ADD TICK LOCATIONS FROM CARTODB
+  ********************************************************************************/
 
 
 })();

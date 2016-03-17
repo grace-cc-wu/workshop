@@ -241,21 +241,6 @@
     SPATIAL ANALYSIS IN YOUR BROWSER
     ********************************************************************************/
 
-    // Many turf functions expect a featurecollection. 
-    // Use turf's featurecollection helper method to convert our geojson feature into a
-    // featurecollection
-    var fc = turf.featurecollection([county]);
-
-    // Count number of tick locations within county
-    var countFeature = turf.count(fc, tickLocations.toGeoJSON(), 'pt_count');
-    var count = countFeature.features[0].properties.pt_count;
-
-    // Add count to html string
-    html = html + '<br/>' + count + ' collection locations';
-
-    // Append html string to p element with .info class
-    $('.info').html(html);
-
 
 
   }

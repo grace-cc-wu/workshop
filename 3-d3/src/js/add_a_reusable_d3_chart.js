@@ -325,35 +325,6 @@
     ADD A RESUABLE D3 CHART
   ********************************************************************************/
 
-  var data;
-
-  // Use d3.csv to convert a csv file into an array of objects
-  // This method is also asynchronous like jQuery's $.getJSON method
-  d3.csv("data/lyme_disease_2001-2014.csv", function(error, _data) {
-
-    data = _data;
-
-    var totalsData = data.filter( function(item) {
-      return (item.County == 'California' && item.Sex == 'Total');
-    });
-
-    // Create an instance of a barChart 
-    // Neither data nor selection has yet been passed to the chart, so nothing will
-    // actually happen based upon this function call
-    var totalsChart = barChart();
-
-    // Pass attributes using the setters provided by barChart
-    totalsChart.width(450);
-    totalsChart.height(200);
-    totalsChart.axisLabel('Total');
-
-    // Select the chart-canvas div in HTML, bind data to it, draw the chart  
-    d3.select(".chart-canvas.total")
-      .datum(totalsData)
-      .call(totalsChart);
-
-
-  });
 
 
 

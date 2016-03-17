@@ -337,67 +337,6 @@
     CREATE MULTIPLE D3 BAR CHARTS
   ********************************************************************************/
 
-  var data;
-
-  // Use d3.csv to convert a csv file into an array of objects
-  // This method is also asynchronous like jQuery's $.getJSON method
-  d3.csv("data/lyme_disease_2001-2014.csv", function(error, _data) {
-    data = _data;
-    renderChart(data, 'California');
-  });
-
-  // Create an instance of a barChart 
-  // Neither data nor selection has yet been passed to the chart, so nothing will
-  // actually happen based upon this function call
-  var totalsChart = barChart();
-
-  // Pass attributes using the setters provided by barChart
-  totalsChart.width(450);
-  totalsChart.height(200);
-  totalsChart.axisLabel('Total');
-
-  // Create a second instance of barChart 
-  var maleChart = barChart();
-  maleChart.width(275);
-  maleChart.height(200);
-  maleChart.axisLabel('Male');
-
-  // Create a third instance of barChart 
-  var femaleChart = barChart();
-  femaleChart.width(275);
-  femaleChart.height(200);
-  femaleChart.axisLabel('Female');
-
-
-  function renderChart(data, county) {
-
-    var totalsData = data.filter( function(item) {
-      return (item.County == county && item.Sex == 'Total');
-    });
-    
-    var maleData = data.filter( function(item) {
-      return (item.County == county && item.Sex == 'Male');
-    });
-
-    var femaleData = data.filter( function(item) {
-      return (item.County == county && item.Sex == 'Female');
-    });
-
-
-    // Select the chart-canvas div in HTML, bind data to it, draw the chart  
-    d3.select(".chart-canvas.total")
-      .datum(totalsData)
-      .call(totalsChart);
-
-    d3.select(".chart-canvas.male")
-      .datum(maleData)
-      .call(maleChart);
-
-
-    d3.select(".chart-canvas.female")
-      .datum(femaleData)
-      .call(femaleChart);
-  }
 
 
 

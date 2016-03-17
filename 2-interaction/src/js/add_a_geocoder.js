@@ -257,52 +257,6 @@
     ADD A GEOCODER
   ********************************************************************************/
 
-  // Create a new geocoder that uses the Nominatim service provided by OSM
-  // The countrycodes : 'us' option restricts searches to locations within US
-  // For more options see https://github.com/perliedman/leaflet-control-geocoder
-  var nominatim = new L.Control.Geocoder.Nominatim({
-    geocodingQueryParams: {
-      countrycodes: 'us'
-    }
-  });
-
-  // Create a new geocoder control and pass in nominatim as the geocding service to use
-  var geocoder = L.Control.geocoder({
-    position: 'topleft',
-    geocoder: nominatim
-  }).addTo(map);
-
-  // Intialize a new Leaflet Marker layer to store the geocding result
-  var geocodeMarker = new L.Marker();
-
-  // Overwrite the markGeocode function provided by geocoder control
-  geocoder.markGeocode = function(result) {
-    
-    // Pans map to center
-    map.setView(result.center, 8);
-
-    // If a Leaflet Marker layer created by previous geocoding query exists, remove it from map
-    if (map.hasLayer(geocodeMarker)){
-      map.removeLayer(geocodeMarker);
-    };
-
-    // Update Leaflet Marker's location and popup content
-    // Add to map and open popup
-    geocodeMarker
-      .setLatLng(result.center)
-      .bindPopup(result.name || result.html)
-      .addTo(map)
-      .openPopup();    
-
-  };
-
-  // If user clicks anywhere on map remove geocoding result
-  map.on('click', function(e){
-    if (map.hasLayer(geocodeMarker)){
-      map.removeLayer(geocodeMarker);
-    };
-  });
-
 
 
 
