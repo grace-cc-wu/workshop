@@ -46,28 +46,26 @@ The exercises here are designed to showcase some ways you can use Leaflet and D3
 
 ### 1. Data
 
-* [Add basemaps](./data/import_data.md)
-* [Add data hosted in your CartoDB account]
-* [Add data from geojson file that you host]
-* [Add a really large geojson file that you host and create vector tiles on the client side]
+* [Add basemaps](./1-data/add_basemaps.md)
+* [Add thematic data (tick locations)](./1-data/add_thematic_data.md)
+* [Add thematic data and style](./1-data/add_thematic_data_and_style.md)
+* [Add thematic data from CartoDB](./1-data/add_thematic_data_from_cartodb.md)
+* [Add thematic data (counties)](./1-data/add_thematic_data_counties.md)
 
 ### 2. User Interaction
 
-* [Add and style popups ](./data/import_data.md)
-* [Add drawing tools to map ](./data/import_data.md)
-* [Timeslider ](./data/import_data.md)
-* [Add url hash ](./data/import_data.md)
+* [Add a geocoder](./2-interaction/add_a_geocoder.md)
+* [Spatial analysis in your browser](./2-interaction/spatial_analysis_in_your_browser.md)
 
-### 3. Spatial Analysis In Your Browser
+### 3. D3
 
-* [Create Buffers ](./data/import_data.md)
+* [Add a D3 chart](./3-d3/add_a_d3_chart.md)
+* [Add a reusable D3 chart](./3-d3/add_a_reusable_d3_chart.md)
+* [Create multiple D3 bar charts](./3-d3/create_multiple_d3_barcharts.md)
 
-### 4. Use external APIs
+### 4. Resources
 
-* [Get data from Cal-Adapt API](./data/import_data.md)
+* [Resources](./4-resources/resources.html)
 
-### 5. Data visualization components built with D3 
-
-* [Make a map with D3](./data/import_data.md)
 
 

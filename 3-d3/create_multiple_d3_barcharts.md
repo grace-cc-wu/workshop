@@ -6,11 +6,15 @@ If you are new to D3 you can get API documentation [here](https://d3js.org/).
 
 ###Steps
 
+
 1. For this exercise we will use the full csv file with Diseases Incidence Rate for California and all counties `data/lyme_disease_2001-2014.csv`
+
 
 2. Copy and paste the code below into `src/create_multiple_d3_barchart.js` 
 
+
 ```javascript
+
   /********************************************************************************
     CREATE MULTIPLE D3 BAR CHARTS
   ********************************************************************************/
@@ -76,27 +80,38 @@ If you are new to D3 you can get API documentation [here](https://d3js.org/).
       .datum(femaleData)
       .call(femaleChart);
   }
+
 ```
+
 
 3. Copy and paste the following code to `js/bar_chart.js`. This adds a new getter/setter function for y axis label
 
+
 ```javascript
+
   chart.axisLabel = function(_) {
     if (!arguments.length) return axisLabel;
     axisLabel = _;
     return chart;
   };
+
 ```
+
 
 4. In Chrome, navigate to `http://localhost:8000/3-d3/src/create_multiple_d3_barcharts.html`
 
+
 5. Bar charts of Lyme Disease Incidence Rate for Total, Male and Female population for California should be created in the sidebar.
+
 
 6. Let's add functionality to update charts with data for individual counties. We will attach it to the click event.
 
+
 7. Add a new click event handler to the county layer. This will update data in the charts when user clicks on a county.
 
+
 ```javascript
+
   function updateChart(){
 
     // Get county name
@@ -107,11 +122,15 @@ If you are new to D3 you can get API documentation [here](https://d3js.org/).
     var idx = countyName.indexOf(' County');
     renderChart(data, countyName.slice(0, idx));
   }
+
 ```
+
 
 8. Update the `handleLayer` function for county layer to call `updateChart` when county is clicked
 
+
 ```javascript
+
   // Style each layer
   function handleLayer(layer){
 
@@ -136,8 +155,12 @@ If you are new to D3 you can get API documentation [here](https://d3js.org/).
     });
 
   }
+
 ```
+
+
 9. In Chrome, navigate to `http://localhost:8000/3-d3/src/create_multiple_d3_barcharts.html`. 
+
 
 10. Now bar charts should update each time you click on a county
 
