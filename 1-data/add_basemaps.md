@@ -6,7 +6,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 ###Steps
 
-1. Copy and paste the code below into the [add_basemaps.html](./src/add_basemaps.html).
+1. Copy and paste the code below into the src/add_basemaps.html.
 
     ```html
 
