@@ -25,8 +25,9 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 * Leaflet CSS file
 * Leaflet JavaScript file
-* A div element with a certain `id` where you want your map to be
+* A div element with a certain `id` where you want your map to be 
 * A defined height for your map div
+
 
 4. If you make changes to your html, css or js file make sure you refresh browser to see your changes
 
