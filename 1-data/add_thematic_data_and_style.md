@@ -9,7 +9,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 2. We are also going to move the code inside a Immediately Invoked Function Expression (IIFE) block to prevent us from creating any global variables that could cause conflicts later on. Read more on IIFE [here](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) and [here](http://gregfranko.com/blog/i-love-my-iife/). It looks like this:
 
-    ```js
+    ```javascript
     // Anonymous function, i.e. function without a name
     (function(){
       // my special code
@@ -101,7 +101,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 5. If you click on a marker it will open a popup with text we specified in the bindPopup function.
 
-__Read through the comments in the code to understand what's happening at each step.__
+__Step through the code, read the comments to understand what's happening at each step. Ask questions!__
 
 __Remember to refresh your browser to see your changes.__
 
