@@ -1,6 +1,6 @@
 ###Add thematic data and style
 
-In this exercise we are going to experiment with different ways of adding your thematic data to the Leaflet app and applying styles to it. 
+In this exercise we are going to experiment with different ways of adding your thematic data to the Leaflet app and applying custom styles to it. 
 If you are new to Leafet you can get the examples and API documentation [here](http://leafletjs.com/).
 
 ###Steps
