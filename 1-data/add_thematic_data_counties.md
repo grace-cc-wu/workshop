@@ -6,9 +6,35 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 ###Steps
 
-1. Our js code is going to get bigger. Let's move it to a separate js file and reference that in our html file. This way we can take better advantage of syntax highlighting that code editors like Sublime Text provide and reserve the html file for content.
+1. The geojson files we have been working with are small. Larger geojson files can take longer to load depending on size and network speed. There are couple of ways you can deal with larger files
 
+2. Use the topojson format. Topojson is an extension of GeoJSON that encodes topology. The following code has already been added to the html file for this exercise. It adds the js library with topojson specification and extends the Leaflet GeoJSON object to load topojson files
 
+ ```html
+     <!-- Load TopoJSON from CDN -->
+    <!-- TopoJSON is an extension of GeoJSON that encodes topology -->
+    <!-- https://github.com/mbostock/topojson/wiki -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.js"></script>
+
+    <!-- Javascript code for extending Leaflet's L.geoJson layer to read topojson files -->
+    <script>
+      // Copyright (c) 2013 Ryan Clark
+      // https://gist.github.com/rclark/5779673
+      L.TopoJSON = L.GeoJSON.extend({
+        addData: function(jsonData) {    
+          if (jsonData.type === "Topology") {
+            for (key in jsonData.objects) {
+              geojson = topojson.feature(jsonData, jsonData.objects[key]);
+              L.GeoJSON.prototype.addData.call(this, geojson);
+            }
+          }    
+          else {
+            L.GeoJSON.prototype.addData.call(this, jsonData);
+          }
+        }  
+      });
+    </script>
+ ```
 
 3. Copy and paste the code below into src/add_thematic_data_and_counties.js
 
@@ -170,9 +196,9 @@ If you are new to Leafet you can get the examples and API documentation [here](h
   }
     ```
 
-4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_counties.html`. 
+4. In Chrome, navigate to `http://localhost:8000/1-data/src/add_thematic_data_counties.html`. 
 
-5. If you click on a marker it will open a popup with text we specified in the bindPopup function.
+5. If you hover over a county it will add County name and population to the sidebar
 
 __Step through the code, read the comments to understand what's happening at each step. Ask questions!__
 
