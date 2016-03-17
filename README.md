@@ -65,7 +65,7 @@ The exercises here are designed to showcase some ways you can use Leaflet and D3
 
 ### 4. Resources
 
-* [Resources](./4-resources/resources.html)
+* [Resources](./4-resources/resources.md)
 
 
 
