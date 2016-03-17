@@ -6,7 +6,7 @@ There are many different ways of setting up a local server depending on what ope
 
 ###Steps
 
-1. Open a terminal window. Change directory to the folder that contains your html file
+1. Open a terminal window. Change directory to the workshop folder
 
     ```
     cd workshop
