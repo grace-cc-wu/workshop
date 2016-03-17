@@ -28,6 +28,7 @@
 - Rich ecosystem of examples showing visualization types, coding techniques [blockbuilder.org/](http://blockbuilder.org/), [bl.ocks.org/](http://bl.ocks.org/)
 - [Navigating the D3 Ecosystem](http://enjalot.github.io/talks/navd3eco/)
 - How do I learn D3.js? [Quora thread](https://www.quora.com/How-do-I-learn-D3-js)
+- Explanation of how D3 works: https://bost.ocks.org/mike/circles/
 
 ###What does it do?
 
