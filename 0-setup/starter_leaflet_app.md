@@ -22,10 +22,10 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 2. In Chrome, navigate to `http://localhost:8000/0-setup/src/starter_leaflet_app.html`. You should see a map centered on Sacramento, California.
 
 3. __Note__: Four things you need to add a Leaflet map to a web page
-* Leaflet CSS file
-* Leaflet JavaScript file
-* A div element with a certain id where you want your map to be 
-* A defined height for your map div
+ * Leaflet CSS file
+ * Leaflet JavaScript file
+ * A div element with a certain id where you want your map to be 
+ * A defined height for your map div
 
 4. If you make changes to your html, css or js file make sure you refresh browser to see your changes
 
