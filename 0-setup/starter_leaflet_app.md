@@ -6,7 +6,7 @@ If you are new to Leafet you can get the examples and API documentation [here](h
 
 ###Steps
 
-1. Copy and paste the code below into the [starter_leaflet_app.html](./src/starter_leaflet_app.html).
+1. Copy and paste the code below into the src/starter_leaflet_app.html.
 
     ```html
 
